@@ -1,5 +1,6 @@
-# WKT for DGGS validator
-A Python library and command line utility that validates [Well-Known Text](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) -style geometry literal values for Discrete Global Grid Systems (DGGS).
+# DGGS Geometry Validator
+A Python library and command line utility that validates Discrete Global Grid Systems (DGGS) geometry literals in one of several formats, such as [Well-Known Text](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry), [GeoJSON](https://tools.ietf.org/html/rfc7946), and [GML](https://www.ogc.org/standards/gml).
+
 
 ## NOTE: this package is currently non-functional
 _this note will be removed when it is_
@@ -8,8 +9,17 @@ _this note will be removed when it is_
 ## Installation
 This is a Python utility that is available via the Python Package Index, PyPI at <https://pypi.org/project/wktdggs/> so it may be installed using the PIP program:
 
+(Using the Python3 pip installer `pip3`)
 ```
-pip install wktdggs
+$ pip3 install dggsgv
+```
+
+Or in a python virtualenv _(these example commandline instructions are for a Linux/Unix based OS)_
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install pyshacl
 ```
 
 You can also install it locally by downloading or cloning, using [Git](https://git-scm.com) the source files from its [GitHub](https://github.com/) repository at <https://github.com/surroundaustralia/wkt-dggs>. After cloning / downloading navigate into the package's main  directory that contains the `setup.py` file. Then, install it locally like this:
@@ -18,12 +28,13 @@ You can also install it locally by downloading or cloning, using [Git](https://g
 python setup.py install
 ```
 
+
 ## Use
 ### As a Python Library
 To use the utility as a Python library, import it into your Python code and call the `validate` function, something like this:
 
 ```python
-from wktdggs import validate
+from dggsgv import validate
 
 # the WKT DGGS literal I want to validate
 geom = "<http://w3id.org/dggs/tb16pix> POINT (P123456)"
@@ -33,34 +44,44 @@ vresult = validate(geom)
 if vresult[0]:
     print("It is valid!")
 else:
-    print("It is not vaild.")
+    print("It is not valid.")
     print("The validation errors are:")
     print("\n".join(vresult[1]))  # all messages are in a list within vresult[1] 
 ```
 
-### As a Python command line tool
+### As a command line tool
 Use Python to call the command line script `cli.py` within the package like this:
 
 ```bash
-python cli.py STRING_OR_FILE_PATH [-o {table,json}]
+python cli.py [-h] STRING_OR_FILE_PATH [-o {table,json}]
 
 positional arguments:
-    STRING_OR_FILE_PATH: a WKT DGGS literal value or a file path
+    STRING_OR_FILE_PATH: a geometry literal value or the path of a file containing 
+                         geometry literals, one per line
 
 optional arguments:
-    -o, --output: the value 'table' or 'json' to return a formatted text table of results or JSON
+    -h, --help          show this help message and exit
+    -o, --output:       the value 'table' or 'json' to return a formatted text table
+                        of results or JSON
 ```
 
-You can present the `cli.py` script with a WKT DGGS string, e.g.:
+If you have installed the package, you can call it on the command line like this (UNIX or Linux or Mac):
 
 ```bash
-python cli.py "<http://w3id.org/dggs/tb16pix> POINT (P123456)"
+dggsgv STRING_OR_FILE_PATH [-o {table,json}]
+```
+
+
+You can present the `cli.py`/`dggsgv` script with geometry literal values in string, e.g., for a WKT value:
+
+```bash
+dggsgv "<http://w3id.org/dggs/tb16pix> POINT (P123456)"
 ```
 
 or you can give it a file to read:
 
 ```bash
-python cli.py /path/to/my/file.txt
+dggsgv /path/to/my/file.txt
 ```
 
 If giving it a file, it will look for one WKT DGGS geometry per line and validate each. It will report its results with a line number if more than one line is present in the file, e.g.:
@@ -78,13 +99,11 @@ Line    Valid   Messages
 N       True    -   
 ```
 
-### As a BASH script
-The BASH script `wktdggs.sh` can be called in the same way as the Python `cli.py` script, e.g.:
+You can also return a JSON format, e.g. for geometries in a file called `geometries.txt`:
 
 ```bash
-sh wktdggs.sh /path/to/my/geometries.txt -o json
+dggsgv /path/to/my/geometries.txt -o json
 ```
-Which will validate geometries in `geometries.txt` and output results in JSON.
 
 
 ## License  
@@ -131,6 +150,7 @@ Or the following RDF:
     ]
 .
 ```
+
 
 ## Contacts
 

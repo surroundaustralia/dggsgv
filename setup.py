@@ -3,7 +3,7 @@
 import codecs
 import os
 from setuptools import setup, find_packages
-from wktdggs import __version__
+from dggsgv import __version__
 
 
 def open_local(paths, mode="r", encoding="utf8"):
