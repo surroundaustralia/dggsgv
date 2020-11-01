@@ -21,7 +21,7 @@ with open_local(["requirements.txt"]) as req:
     install_requires = req.read().split("\n")
 
 setup(
-    name="wkt-dggs",
+    name="dggsgv",
     description="An OWL ontology documentation tool using Python and templating, based on LODE.",
     long_description=long_description,
     version=__version__,
@@ -29,7 +29,7 @@ setup(
     author_email="nicholas.car@surroundaustralia.com",
     packages=find_packages(exclude=["examples", "tests"]),
     url="https://github.com/rdflib/pyLODE",
-    download_url="https://github.com/surroundaustralia/wkt-dggs/archive/v{:s}.tar.gz".format(__version__),
+    download_url="https://github.com/surroundaustralia/dggsgv/archive/v{:s}.tar.gz".format(__version__),
     license="LGPL",
     keywords=["Discrete Global Grid System", "DGGS", "Well-Known Text", "WKT", "geometry"],
     # entry_points={
@@ -51,8 +51,8 @@ setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
     project_urls={
-        "Bug Reports": "https://github.com/surroundaustralia/wkt-dggsissues",
-        "Source": "https://github.com/surroundaustralia/wkt-dggs",
+        "Bug Reports": "https://github.com/surroundaustralia/dggsgv/issues",
+        "Source": "https://github.com/surroundaustralia/dggsgv",
     },
     install_requires=install_requires,
     long_description_content_type="text/x-rst"

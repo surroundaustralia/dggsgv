@@ -1,9 +1,8 @@
 # DGGS Geometry Validator
-A Python library and command line utility that validates Discrete Global Grid Systems (DGGS) geometry literals in one of several formats, such as [Well-Known Text](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry), [GeoJSON](https://tools.ietf.org/html/rfc7946), and [GML](https://www.ogc.org/standards/gml).
+A Python library and command line utility that validates Discrete Global Grid Systems (DGGS) geometry literals in one of several formats, such as DGGS [Well-Known Text](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry), DGGS [GeoJSON](https://tools.ietf.org/html/rfc7946), and DGGS [GML](https://www.ogc.org/standards/gml).
 
 
-## NOTE: this package is currently non-functional
-_this note will be removed when it is_
+## NOTE: currently only the DGGS WKT is validatable 
 
 
 ## Installation
@@ -22,7 +21,7 @@ source venv/bin/activate
 pip install pyshacl
 ```
 
-You can also install it locally by downloading or cloning, using [Git](https://git-scm.com) the source files from its [GitHub](https://github.com/) repository at <https://github.com/surroundaustralia/wkt-dggs>. After cloning / downloading navigate into the package's main  directory that contains the `setup.py` file. Then, install it locally like this:
+You can also install it locally by downloading or cloning, using [Git](https://git-scm.com) the source files from its [GitHub](https://github.com/) repository at <https://github.com/surroundaustralia/dggsgv>. After cloning / downloading navigate into the package's main  directory that contains the `setup.py` file. Then, install it locally like this:
 
 ```
 python setup.py install

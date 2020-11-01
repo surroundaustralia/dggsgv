@@ -65,9 +65,7 @@ def main():
 
     data = get_data_from_file_or_string(args.geometry)
 
-    print(data)
-
-    v = validate()
+    v = validate(data)
     if args.output == "turtle":
         print(v.results_as_turtle())
     elif args.output == "json":
