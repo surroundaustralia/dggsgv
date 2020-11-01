@@ -6,4 +6,4 @@ from .validate import Validator, validate
 __version__ = "0.1.0"
 
 
-__all__ = ['validate', 'Validator', '__version__']
+__all__ = ["validate", "Validator", "__version__"]
