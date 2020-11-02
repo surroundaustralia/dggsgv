@@ -2,7 +2,7 @@
 A Python library and command line utility that validates Discrete Global Grid Systems (DGGS) geometry literals in one of several formats, such as DGGS [Well-Known Text](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry), DGGS [GeoJSON](https://tools.ietf.org/html/rfc7946), and DGGS [GML](https://www.ogc.org/standards/gml).
 
 
-## NOTE: currently only the DGGS WKT is validatable 
+## NOTE: currently only the normal - non-DGGS - WKT is validatable for code testing only
 
 
 ## Installation
